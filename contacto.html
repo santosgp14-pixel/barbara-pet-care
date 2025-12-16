@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Barbara Pet Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🐾 Barbara Pet Care</div>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+                        <li><a href="index.html#requisitos">Requisitos</a></li>
+                        <li><a href="index.html#galeria">Galería</a></li>
+                        <li><a href="index.html#testimonios">Testimonios</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="contacto.html" class="btn btn-primary">Pedir asesoría gratuita</a>
+                    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp">📱 WhatsApp directo</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Form -->
+    <section id="contacto" class="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Solicita tu asesoría gratuita</h2>
+                <p>Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas</p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+34 XXX XXX XXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pais">País de origen *</label>
+                            <input type="text" id="pais" name="pais" required placeholder="España">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="destino">País de destino *</label>
+                            <input type="text" id="destino" name="destino" required placeholder="¿Hacia dónde viajas?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipoMascota">Tipo de mascota *</label>
+                            <select id="tipoMascota" name="tipoMascota" required>
+                                <option value="">Selecciona...</option>
+                                <option value="Perro">Perro</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaViaje">Fecha estimada de viaje</label>
+                        <input type="date" id="fechaViaje" name="fechaViaje" placeholder="Fecha aproximada">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos más sobre tu caso</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Detalles adicionales, preguntas, situación específica..."></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">Enviar solicitud</button>
+                        <p class="form-note">Al enviar aceptas que nos contactemos contigo para brindarte asesoría.</p>
+                    </div>
+
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+
+                <div class="contact-info">
+                    <h3>O contáctanos directamente</h3>
+                    <div class="contact-methods">
+                        <a href="https://wa.me/34XXXXXXXXX" class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>Respuesta inmediata</span>
+                            </div>
+                        </a>
+                        <a href="mailto:info@barbarapetcare.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <span>info@barbarapetcare.com</span>
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/barbarapetcare/" target="_blank" class="contact-method">
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <strong>Instagram</strong>
+                                <span>@barbarapetcare</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="back-to-home">
+                        <a href="index.html" class="btn btn-secondary">← Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Barbara Pet Care</h4>
+                    <p>Traslados de mascotas nacionales e internacionales con acompañamiento completo.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="index.html#servicios">Asesoría personalizada</a></li>
+                        <li><a href="index.html#servicios">Gestión de trámites</a></li>
+                        <li><a href="index.html#servicios">Planificación del viaje</a></li>
+                        <li><a href="index.html#servicios">Acompañamiento</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+                        <li><a href="index.html#requisitos">Requisitos</a></li>
+                        <li><a href="index.html#testimonios">Testimonios</a></li>
+                        <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/34XXXXXXXXX"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="mailto:info@barbarapetcare.com"><i class="fas fa-envelope"></i> Email</a></li>
+                        <li><a href="https://www.instagram.com/barbarapetcare/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Barbara Pet Care. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
