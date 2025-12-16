@@ -41,6 +41,12 @@
                 <p>Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas</p>
             </div>
 
+            <!-- Cotización recibida -->
+            <div id="quoteSummaryCard" class="quote-summary-card" style="display: none;">
+                <h3><i class="fas fa-calculator"></i> Tu cotización</h3>
+                <div id="quoteSummaryContent"></div>
+            </div>
+
             <div class="contact-form-wrapper">
                 <form id="contactForm" class="contact-form">
                     <div class="form-row">
@@ -94,6 +100,9 @@
                         <textarea id="mensaje" name="mensaje" rows="5" placeholder="Detalles adicionales, preguntas, situación específica..."></textarea>
                     </div>
 
+                    <!-- Campo oculto para la cotización -->
+                    <input type="hidden" id="cotizacion" name="cotizacion" value="">
+
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large">Enviar solicitud</button>
                         <p class="form-note">Al enviar aceptas que nos contactemos contigo para brindarte asesoría.</p>
@@ -105,7 +114,7 @@
                 <div class="contact-info">
                     <h3>O contáctanos directamente</h3>
                     <div class="contact-methods">
-                        <a href="https://wa.me/34XXXXXXXXX" class="contact-method">
+                        <a href="https://wa.me/34680917655" class="contact-method">
                             <i class="fab fa-whatsapp"></i>
                             <div>
                                 <strong>WhatsApp</strong>

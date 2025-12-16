@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador - Barbara Pet Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🐾 Barbara Pet Care</div>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+                        <li><a href="index.html#requisitos">Requisitos</a></li>
+                        <li><a href="index.html#galeria">Galería</a></li>
+                        <li><a href="index.html#testimonios">Testimonios</a></li>
+                        <li><a href="cotizador.html">Cotizador</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="contacto.html" class="btn btn-primary">Pedir asesoría gratuita</a>
+                    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp">📱 WhatsApp directo</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cotizador -->
+    <section class="cotizador-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cotiza tu traslado de mascota</h2>
+                <p>Selecciona las opciones que mejor se adapten a tu viaje y obtén un estimado de precio</p>
+            </div>
+
+            <div class="cotizador-wrapper">
+                <div class="cotizador-form">
+                    <div class="step-indicator">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span>Origen y Destino</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span>Tu Mascota</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span>Servicios</span>
+                        </div>
+                        <div class="step" data-step="4">
+                            <div class="step-number">4</div>
+                            <span>Resumen</span>
+                        </div>
+                    </div>
+
+                    <!-- Paso 1: Origen y Destino -->
+                    <div class="cotizador-step active" id="step1">
+                        <h3>¿Desde dónde y hacia dónde viajas?</h3>
+                        
+                        <div class="form-group">
+                            <label for="origen">País de origen</label>
+                            <select id="origen" name="origen" required>
+                                <option value="">Selecciona...</option>
+                                <option value="España">España</option>
+                                <option value="México">México</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Perú">Perú</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Estados Unidos">Estados Unidos</option>
+                                <option value="Canadá">Canadá</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Panamá">Panamá</option>
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="Otro país">Otro país</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destinoRegion">Región de destino</label>
+                            <select id="destinoRegion" name="destinoRegion" required>
+                                <option value="">Selecciona...</option>
+                                <option value="Union Europea" data-precio="400">Unión Europea</option>
+                                <option value="Reino Unido" data-precio="600">Reino Unido</option>
+                                <option value="Latinoamerica" data-precio="1200">Latinoamérica</option>
+                                <option value="Estados Unidos/Canada" data-precio="1500">Estados Unidos / Canadá</option>
+                                <option value="Asia/Oceania" data-precio="2500">Asia / Oceanía</option>
+                                <option value="Africa/Medio Oriente" data-precio="1800">África / Medio Oriente</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">Continuar →</button>
+                    </div>
+
+                    <!-- Paso 2: Tu Mascota -->
+                    <div class="cotizador-step" id="step2">
+                        <h3>Cuéntanos sobre tu mascota</h3>
+                        
+                        <div class="form-group">
+                            <label for="tipoAnimal">Tipo de animal</label>
+                            <select id="tipoAnimal" name="tipoAnimal" required>
+                                <option value="">Selecciona...</option>
+                                <option value="Perro" data-precio="0">Perro</option>
+                                <option value="Gato" data-precio="0">Gato</option>
+                                <option value="Otro" data-precio="200">Otro animal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="peso">Peso aproximado de la mascota</label>
+                            <select id="peso" name="peso" required>
+                                <option value="">Selecciona...</option>
+                                <option value="Hasta 10kg" data-precio="0">Hasta 10kg</option>
+                                <option value="10-20kg" data-precio="150">10 - 20kg</option>
+                                <option value="20-30kg" data-precio="300">20 - 30kg</option>
+                                <option value="Más de 30kg" data-precio="500">Más de 30kg</option>
+                            </select>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">← Atrás</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continuar →</button>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3: Servicios -->
+                    <div class="cotizador-step" id="step3">
+                        <h3>Servicios incluidos en tu traslado</h3>
+                        <p class="step-subtitle">Selecciona los servicios que necesitas</p>
+
+                        <div class="services-checklist">
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Asesoría personalizada" data-precio="0" checked disabled>
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Asesoría personalizada</strong>
+                                        <span class="badge-included">Incluido</span>
+                                    </div>
+                                    <p>Análisis de tu caso y plan detallado paso a paso</p>
+                                </div>
+                            </label>
+
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Gestión de documentación" data-precio="250" checked>
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Gestión de documentación completa</strong>
+                                        <span class="service-price">+€250</span>
+                                    </div>
+                                    <p>Pasaporte, certificados veterinarios, permisos de exportación/importación</p>
+                                </div>
+                            </label>
+
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Transportín homologado" data-precio="120">
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Transportín homologado IATA</strong>
+                                        <span class="service-price">+€120</span>
+                                    </div>
+                                    <p>Transportín adecuado al tamaño de tu mascota según normativas aéreas</p>
+                                </div>
+                            </label>
+
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Coordinación con veterinarios" data-precio="150">
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Coordinación con veterinarios autorizados</strong>
+                                        <span class="service-price">+€150</span>
+                                    </div>
+                                    <p>Gestión de citas, vacunas y certificados con veterinarios habilitados</p>
+                                </div>
+                            </label>
+
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Reserva de vuelo" data-precio="180">
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Reserva y gestión de vuelo</strong>
+                                        <span class="service-price">+€180</span>
+                                    </div>
+                                    <p>Selección de aerolínea pet-friendly, reserva de espacio para mascota</p>
+                                </div>
+                            </label>
+
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Seguimiento 24/7" data-precio="200" checked>
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Seguimiento 24/7 durante el viaje</strong>
+                                        <span class="service-price">+€200</span>
+                                    </div>
+                                    <p>Acompañamiento en tiempo real hasta que tu mascota llegue a destino</p>
+                                </div>
+                            </label>
+
+                            <label class="service-checkbox">
+                                <input type="checkbox" name="servicio" value="Recogida/Entrega" data-precio="100">
+                                <div class="service-info">
+                                    <div class="service-title">
+                                        <span class="check-icon">✓</span>
+                                        <strong>Recogida y/o entrega a domicilio</strong>
+                                        <span class="service-price">+€100</span>
+                                    </div>
+                                    <p>Transporte terrestre desde/hacia aeropuerto</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">← Atrás</button>
+                            <button type="button" class="btn btn-primary" onclick="calculateQuote()">Ver cotización →</button>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4: Resumen -->
+                    <div class="cotizador-step" id="step4">
+                        <h3>Tu cotización estimada</h3>
+                        
+                        <div class="quote-summary">
+                            <div class="quote-details" id="quoteDetails"></div>
+                            
+                            <div class="quote-total">
+                                <div class="total-label">Precio estimado total:</div>
+                                <div class="total-price" id="totalPrice">Desde €0</div>
+                                <p class="quote-note">* El precio final puede variar según requisitos específicos de tu país de destino y circunstancias particulares.</p>
+                            </div>
+
+                            <div class="quote-actions">
+                                <button type="button" class="btn btn-primary btn-large" onclick="proceedToContact()">
+                                    Solicitar asesoría con esta cotización →
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="resetQuote()">
+                                    ← Nueva cotización
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cotizador-sidebar">
+                    <div class="sidebar-card">
+                        <h4>¿Por qué cotizar con nosotros?</h4>
+                        <ul class="sidebar-benefits">
+                            <li><i class="fas fa-check-circle"></i> Precios transparentes sin sorpresas</li>
+                            <li><i class="fas fa-check-circle"></i> Todos los servicios incluidos</li>
+                            <li><i class="fas fa-check-circle"></i> Acompañamiento personalizado</li>
+                            <li><i class="fas fa-check-circle"></i> Experiencia en traslados internacionales</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h4>¿Necesitas ayuda?</h4>
+                        <p>Nuestro equipo está disponible para resolver tus dudas</p>
+                        <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp btn-block">
+                            <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Barbara Pet Care</h4>
+                    <p>Traslados de mascotas nacionales e internacionales con acompañamiento completo.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="index.html#servicios">Asesoría personalizada</a></li>
+                        <li><a href="index.html#servicios">Gestión de trámites</a></li>
+                        <li><a href="index.html#servicios">Planificación del viaje</a></li>
+                        <li><a href="index.html#servicios">Acompañamiento</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+                        <li><a href="index.html#requisitos">Requisitos</a></li>
+                        <li><a href="index.html#testimonios">Testimonios</a></li>
+                        <li><a href="cotizador.html">Cotizador</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/34XXXXXXXXX"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="mailto:info@barbarapetcare.com"><i class="fas fa-envelope"></i> Email</a></li>
+                        <li><a href="https://www.instagram.com/barbarapetcare/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Barbara Pet Care. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
