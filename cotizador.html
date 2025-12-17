@@ -13,7 +13,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">🐾 Barbara Pet Care</div>
+                <a href="index.html" class="logo">🐾 Barbara Pet Care</a>
                 <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
                 <nav id="mainNav">
                     <ul>
@@ -27,7 +27,7 @@
                 </nav>
                 <div class="header-buttons">
                     <a href="contacto.html" class="btn btn-primary">Pedir asesoría gratuita</a>
-                    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp">📱 WhatsApp directo</a>
+                    <a href="https://wa.me/34680917655" class="btn btn-whatsapp">📱 WhatsApp directo</a>
                 </div>
             </div>
         </div>
@@ -106,32 +106,73 @@
 
                     <!-- Paso 2: Tu Mascota -->
                     <div class="cotizador-step" id="step2">
-                        <h3>Cuéntanos sobre tu mascota</h3>
+                        <h3>¿Cuántas mascotas vas a trasladar?</h3>
                         
-                        <div class="form-group">
-                            <label for="tipoAnimal">Tipo de animal</label>
-                            <select id="tipoAnimal" name="tipoAnimal" required>
-                                <option value="">Selecciona...</option>
-                                <option value="Perro" data-precio="0">Perro</option>
-                                <option value="Gato" data-precio="0">Gato</option>
-                                <option value="Otro" data-precio="200">Otro animal</option>
-                            </select>
+                        <div class="cantidad-mascotas-selector">
+                            <div class="cantidad-option" onclick="selectCantidad('una')">
+                                <div class="option-icon">🐕</div>
+                                <h4>Una mascota</h4>
+                                <p>Traslado individual</p>
+                            </div>
+                            <div class="cantidad-option" onclick="selectCantidad('varias')">
+                                <div class="option-icon">🐕🐈</div>
+                                <h4>Varias mascotas</h4>
+                                <p>Traslado múltiple</p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="peso">Peso aproximado de la mascota</label>
-                            <select id="peso" name="peso" required>
-                                <option value="">Selecciona...</option>
-                                <option value="Hasta 10kg" data-precio="0">Hasta 10kg</option>
-                                <option value="10-20kg" data-precio="150">10 - 20kg</option>
-                                <option value="20-30kg" data-precio="300">20 - 30kg</option>
-                                <option value="Más de 30kg" data-precio="500">Más de 30kg</option>
-                            </select>
+                        <!-- Formulario para una mascota -->
+                        <div id="unaMascotaForm" style="display: none;">
+                            <h4 style="margin: 30px 0 20px; color: var(--azul);">Datos de tu mascota</h4>
+                            
+                            <div class="form-group">
+                                <label for="nombreMascota">Nombre de tu mascota</label>
+                                <input type="text" id="nombreMascota" name="nombreMascota" placeholder="Ej: Luna">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipoAnimal">Tipo de animal</label>
+                                <select id="tipoAnimal" name="tipoAnimal" onchange="actualizarOpcionesPeso('peso', this.value)">
+                                    <option value="">Selecciona...</option>
+                                    <option value="Perro" data-precio="0">Perro</option>
+                                    <option value="Gato" data-precio="0">Gato</option>
+                                    <option value="Otro" data-precio="200">Otro animal</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="peso">Peso aproximado</label>
+                                <select id="peso" name="peso">
+                                    <option value="">Selecciona...</option>
+                                    <option value="Hasta 10kg" data-precio="0">Hasta 10kg</option>
+                                    <option value="10-20kg" data-precio="150">10 - 20kg</option>
+                                    <option value="20-30kg" data-precio="300">20 - 30kg</option>
+                                    <option value="Más de 30kg" data-precio="500">Más de 30kg</option>
+                                </select>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(1)">← Atrás</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continuar →</button>
+                            </div>
                         </div>
 
-                        <div class="form-buttons">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">← Atrás</button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continuar →</button>
+                        <!-- Formulario para varias mascotas -->
+                        <div id="variasMascotasForm" style="display: none;">
+                            <h4 style="margin: 30px 0 20px; color: var(--azul);">Agrega los datos de cada mascota</h4>
+                            
+                            <div id="mascotasList">
+                                <!-- Las mascotas se agregarán dinámicamente aquí -->
+                            </div>
+
+                            <button type="button" class="btn btn-secondary" onclick="agregarMascota()" style="width: 100%; margin-bottom: 20px;">
+                                + Agregar otra mascota
+                            </button>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(1)">← Atrás</button>
+                                <button type="button" class="btn btn-primary" onclick="validarYContinuar()">Continuar →</button>
+                            </div>
                         </div>
                     </div>
 
@@ -271,7 +312,7 @@
                     <div class="sidebar-card">
                         <h4>¿Necesitas ayuda?</h4>
                         <p>Nuestro equipo está disponible para resolver tus dudas</p>
-                        <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp btn-block">
+                        <a href="https://wa.me/34680917655" class="btn btn-whatsapp btn-block">
                             <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
                         </a>
                     </div>
@@ -312,7 +353,7 @@
                 <div class="footer-column">
                     <h4>Contacto</h4>
                     <ul>
-                        <li><a href="https://wa.me/34XXXXXXXXX"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="https://wa.me/34680917655"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
                         <li><a href="mailto:info@barbarapetcare.com"><i class="fas fa-envelope"></i> Email</a></li>
                         <li><a href="https://www.instagram.com/barbarapetcare/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                     </ul>
