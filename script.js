@@ -72,22 +72,28 @@ function initContactForm() {
         submitBtn.textContent = 'Enviando...';
 
         try {
-            // IMPORTANTE: Reemplaza esta URL con la URL de tu Google Apps Script
-            // Instrucciones abajo sobre cómo crear el script de Google Sheets
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJLo7zA9sk4kS96dSyOd9ng1kSdlvlrDgpOYYaEPmcCwSnud9fwjLDa29Wk66bhgbDiA/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBymEWwsxn4DRONfj13xlZofiPPHkNr46UugfW24IIyLhtESBPa8QSwLlhicV4ftAavA/exec';
             
             const response = await fetch(SCRIPT_URL, {
+                redirect: 'follow',
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain;charset=utf-8',
                 },
                 body: JSON.stringify(formData)
             });
 
-            // Mostrar mensaje de éxito
-            showFormMessage('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo pronto.', 'success');
-            form.reset();
+            const result = await response.json();
+            
+            if (result.result === 'success') {
+                // Mostrar mensaje de éxito
+                showFormMessage('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+                form.reset();
+                // Limpiar localStorage de cotización
+                localStorage.removeItem('quoteData');
+            } else {
+                throw new Error(result.error || 'Error desconocido');
+            }
 
         } catch (error) {
             console.error('Error:', error);
