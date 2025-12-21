@@ -49,11 +49,15 @@ function doPost(e) {
       data.cotizacion || 'Sin cotización previa'
     ]);
     
-    // 📧 Enviar email al administrador
-    enviarEmailAdmin(data);
-    
-    // 📧 Enviar email de confirmación al cliente
-    enviarEmailCliente(data);
+    // 📧 Intentar enviar emails (sin bloquear si falla)
+    try {
+      enviarEmailAdmin(data);
+      enviarEmailCliente(data);
+    } catch (emailError) {
+      // Si falla el envío de email, registrar el error pero continuar
+      Logger.log('Error al enviar emails: ' + emailError.toString());
+      // No lanzar error para que el formulario se marque como exitoso
+    }
     
     // Retornar éxito
     return ContentService
@@ -298,6 +302,18 @@ function doGet(e) {
    Reemplaza `'tu-email@ejemplo.com'` con tu dirección de email real donde quieres recibir las notificaciones.
 
 5. Guarda el proyecto con un nombre (ej: "Formulario Barbara Pet Care")
+
+6. **IMPORTANTE - Autorizar permisos de email**:
+   - En el menú superior, selecciona la función `enviarEmailAdmin` del desplegable (al lado del botón ▶ Ejecutar)
+   - Haz clic en el botón **▶ Ejecutar**
+   - Te pedirá que autorices permisos:
+     - Click en **Revisar permisos**
+     - Selecciona tu cuenta de Google
+     - Click en **Opciones avanzadas**
+     - Click en **Ir a [nombre del proyecto] (no seguro)**
+     - Click en **Permitir** (necesita permisos para enviar emails)
+   - Aparecerá un error (es normal, solo estamos dando permisos)
+   - Ahora el script ya puede enviar emails automáticamente
 
 ## Paso 3: Implementar el script
 
