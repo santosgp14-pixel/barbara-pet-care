@@ -82,18 +82,18 @@ function enviarEmailAdmin(data) {
 <head>
   <meta charset="UTF-8">
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F4F1EC; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+    .header { background: linear-gradient(135deg, #00B8D4 0%, #3F5C6C 100%); color: white; padding: 30px; text-align: center; }
     .header h1 { margin: 0; font-size: 24px; }
     .content { padding: 30px; }
-    .info-box { background-color: #f8f9fa; border-left: 4px solid #667eea; padding: 15px; margin: 15px 0; border-radius: 5px; }
+    .info-box { background-color: #F4F1EC; border-left: 4px solid #00B8D4; padding: 15px; margin: 15px 0; border-radius: 5px; }
     .info-row { margin: 10px 0; }
-    .label { font-weight: bold; color: #333; display: inline-block; min-width: 140px; }
+    .label { font-weight: bold; color: #3F5C6C; display: inline-block; min-width: 140px; }
     .value { color: #555; }
-    .cotizacion-box { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
-    .mensaje-box { background-color: #e7f3ff; border-left: 4px solid #2196F3; padding: 15px; margin: 20px 0; border-radius: 5px; white-space: pre-wrap; }
-    .footer { background-color: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 12px; }
+    .cotizacion-box { background-color: #FFF3E0; border-left: 4px solid #E07A5F; padding: 15px; margin: 20px 0; border-radius: 5px; }
+    .mensaje-box { background-color: #E0F7FA; border-left: 4px solid #00B8D4; padding: 15px; margin: 20px 0; border-radius: 5px; white-space: pre-wrap; }
+    .footer { background-color: #F4F1EC; padding: 20px; text-align: center; color: #3F5C6C; font-size: 12px; }
   </style>
 </head>
 <body>
@@ -105,7 +105,7 @@ function enviarEmailAdmin(data) {
       <p style="color: #333; font-size: 16px;">Has recibido una nueva solicitud de asesoría:</p>
       
       <div class="info-box">
-        <h3 style="margin-top: 0; color: #667eea;">📋 Datos del Cliente</h3>
+        <h3 style="margin-top: 0; color: #00B8D4;">📋 Datos del Cliente</h3>
         <div class="info-row">
           <span class="label">👤 Nombre:</span>
           <span class="value">${data.nombre}</span>
@@ -125,7 +125,7 @@ function enviarEmailAdmin(data) {
       </div>
       
       <div class="info-box">
-        <h3 style="margin-top: 0; color: #667eea;">✈️ Detalles del Viaje</h3>
+        <h3 style="margin-top: 0; color: #00B8D4;">✈️ Detalles del Viaje</h3>
         <div class="info-row">
           <span class="label">🌍 País origen:</span>
           <span class="value">${data.pais}</span>
@@ -146,14 +146,14 @@ function enviarEmailAdmin(data) {
       
       ${data.mensaje ? `
       <div class="mensaje-box">
-        <h3 style="margin-top: 0; color: #2196F3;">💬 Mensaje</h3>
+        <h3 style="margin-top: 0; color: #00B8D4;">💬 Mensaje</h3>
         <p style="margin: 0;">${data.mensaje}</p>
       </div>
       ` : ''}
       
       ${data.cotizacion && data.cotizacion !== 'Sin cotización previa' ? `
       <div class="cotizacion-box">
-        <h3 style="margin-top: 0; color: #f57c00;">💰 Cotización Previa</h3>
+        <h3 style="margin-top: 0; color: #E07A5F;">💰 Cotización Previa</h3>
         <p style="margin: 0;">${data.cotizacion}</p>
       </div>
       ` : ''}
@@ -188,21 +188,21 @@ function enviarEmailCliente(data) {
 <head>
   <meta charset="UTF-8">
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F4F1EC; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
+    .header { background: linear-gradient(135deg, #00B8D4 0%, #3F5C6C 100%); color: white; padding: 40px 30px; text-align: center; }
     .header h1 { margin: 0 0 10px 0; font-size: 28px; }
     .header p { margin: 0; font-size: 16px; opacity: 0.9; }
     .content { padding: 40px 30px; }
-    .greeting { font-size: 18px; color: #333; margin-bottom: 20px; }
-    .message-box { background-color: #f0f7ff; border-left: 4px solid #667eea; padding: 20px; margin: 25px 0; border-radius: 5px; }
-    .info-summary { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 25px 0; }
-    .info-summary h3 { margin-top: 0; color: #667eea; font-size: 18px; }
-    .info-item { margin: 10px 0; color: #555; }
-    .cta-button { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; }
-    .footer { background-color: #f8f9fa; padding: 30px; text-align: center; color: #666; }
+    .greeting { font-size: 18px; color: #3F5C6C; margin-bottom: 20px; }
+    .message-box { background-color: #E0F7FA; border-left: 4px solid #00B8D4; padding: 20px; margin: 25px 0; border-radius: 5px; }
+    .info-summary { background-color: #F4F1EC; padding: 20px; border-radius: 8px; margin: 25px 0; }
+    .info-summary h3 { margin-top: 0; color: #00B8D4; font-size: 18px; }
+    .info-item { margin: 10px 0; color: #3F5C6C; }
+    .cta-button { display: inline-block; background: linear-gradient(135deg, #00B8D4 0%, #3F5C6C 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; }
+    .footer { background-color: #F4F1EC; padding: 30px; text-align: center; color: #3F5C6C; }
     .social-links { margin: 20px 0; }
-    .social-links a { color: #667eea; text-decoration: none; margin: 0 10px; }
+    .social-links a { color: #00B8D4; text-decoration: none; margin: 0 10px; }
   </style>
 </head>
 <body>
@@ -245,8 +245,8 @@ function enviarEmailCliente(data) {
         </a>
       </div>
       
-      <div style="background-color: #fff3e0; padding: 20px; border-radius: 8px; margin: 25px 0;">
-        <p style="margin: 0; color: #e65100; font-size: 14px;">
+      <div style="background-color: #FFF3E0; padding: 20px; border-radius: 8px; margin: 25px 0;">
+        <p style="margin: 0; color: #E07A5F; font-size: 14px;">
           <strong>💡 Consejo:</strong> Mientras tanto, puedes ir preparando la documentación de tu mascota 
           (cartilla de vacunación, pasaporte si lo tiene, etc.). Te detallaremos todos los requisitos específicos 
           cuando nos contactemos contigo.
@@ -287,11 +287,37 @@ function enviarEmailCliente(data) {
   });
 }
 
-// Función de prueba (opcional)
+// Función de prueba para verificar que el script funciona
 function doGet(e) {
   return ContentService
     .createTextOutput("El script está funcionando correctamente")
     .setMimeType(ContentService.MimeType.TEXT);
+}
+
+// Función de prueba para enviar emails de ejemplo (opcional)
+function testearEmails() {
+  var dataPrueba = {
+    fecha: new Date().toLocaleString('es-ES'),
+    nombre: 'Juan Pérez (PRUEBA)',
+    email: EMAIL_DESTINATARIO, // Envía el email de prueba a ti mismo
+    telefono: '+34 600 000 000',
+    pais: 'España',
+    destino: 'Argentina',
+    tipoMascota: 'Perro',
+    fechaViaje: '2025-01-15',
+    mensaje: 'Este es un mensaje de prueba del sistema de emails.',
+    cotizacion: 'Cotización aproximada: 1500€ - 2000€'
+  };
+  
+  try {
+    enviarEmailAdmin(dataPrueba);
+    enviarEmailCliente(dataPrueba);
+    Logger.log('✅ Emails de prueba enviados correctamente');
+    return '✅ Emails de prueba enviados a: ' + EMAIL_DESTINATARIO;
+  } catch (error) {
+    Logger.log('❌ Error: ' + error.toString());
+    return '❌ Error: ' + error.toString();
+  }
 }
 ```
 
@@ -303,17 +329,46 @@ function doGet(e) {
 
 5. Guarda el proyecto con un nombre (ej: "Formulario Barbara Pet Care")
 
-6. **IMPORTANTE - Autorizar permisos de email**:
-   - En el menú superior, selecciona la función `enviarEmailAdmin` del desplegable (al lado del botón ▶ Ejecutar)
-   - Haz clic en el botón **▶ Ejecutar**
-   - Te pedirá que autorices permisos:
-     - Click en **Revisar permisos**
-     - Selecciona tu cuenta de Google
-     - Click en **Opciones avanzadas**
-     - Click en **Ir a [nombre del proyecto] (no seguro)**
-     - Click en **Permitir** (necesita permisos para enviar emails)
-   - Aparecerá un error (es normal, solo estamos dando permisos)
-   - Ahora el script ya puede enviar emails automáticamente
+6. **CRÍTICO - Autorizar permisos de email** (SIGUE ESTOS PASOS EXACTAMENTE):
+   
+   **Si ya diste permisos antes pero no funcionan:**
+   
+   a. Ve a https://myaccount.google.com/permissions
+   
+   b. Busca tu proyecto "Formulario Barbara Pet Care" o el nombre que le pusiste
+   
+   c. Haz click en el proyecto y luego en **"Quitar acceso"** o **"Eliminar"**
+   
+   d. Vuelve a Google Apps Script
+   
+   **Ahora sigue estos pasos para dar permisos de nuevo:**
+   
+   e. En el menú superior (donde dice "función sin nombre"), selecciona **`testearEmails`**
+   
+   f. Haz clic en el botón **▶ Ejecutar** (play)
+   
+   g. Aparecerá una ventana emergente diciendo "Se requiere autorización":
+      - Click en **Revisar permisos**
+   
+   h. Selecciona tu cuenta de Google (la que usas para este proyecto)
+   
+   i. **MUY IMPORTANTE**: Aparecerá "Google no ha verificado esta aplicación":
+      - NO te asustes, esto es normal
+      - Click en **Opciones avanzadas** (abajo a la izquierda)
+      - Click en **Ir a [nombre del proyecto] (no seguro)**
+   
+   j. En la siguiente pantalla te mostrará los permisos que necesita:
+      - "Ver y administrar hojas de cálculo en Google Drive"
+      - "Enviar correo electrónico como tu cuenta"
+      - Click en **Permitir** (abajo a la derecha)
+   
+   k. Espera unos segundos. Deberías ver:
+      - En los registros (Execution log): "✅ Emails de prueba enviados correctamente"
+      - Revisa tu bandeja de entrada, deberías tener 2 emails
+   
+   l. Si aún NO te pide permisos, prueba ejecutando **`enviarEmailAdmin`** o **`enviarEmailCliente`** directamente
+   
+   ✅ Ahora el script ya puede enviar emails automáticamente desde el formulario web
 
 ## Paso 3: Implementar el script
 
