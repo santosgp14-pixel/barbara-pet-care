@@ -72,7 +72,7 @@ function initContactForm() {
         submitBtn.textContent = 'Enviando...';
 
         try {
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXmzSMOYuLGa8RK3Rkt9g4d6mwZTdCmhBz8Q1ZWR7aC2NZAg2G8Hbto8XPlsEO72t1HQ/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQAemSVMgtgGY5JPoWd7_zvRdaHs4LNYw1t6PWmH_YR4gnmEwSVx6FlS0krh_5fAmR1g/exec';
             
             const response = await fetch(SCRIPT_URL, {
                 redirect: 'follow',
